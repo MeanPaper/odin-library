@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root{
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+
+
+  --bg-50: #ecfdf5;
+  --bg-100: #d1fae5;
+  --bg-200: #a7f3d0;
+  --bg-300: #6ee7b7;
+  --bg-400: #34d399;
+  --bg-500: #10b981;
+  --bg-600: #059669;
+  --bg-700: #047857;
+  --bg-800: #065f46;
+  --bg-900: #064e3b;
+  --bg-950: #022c22;
+
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --neutral-50: #fafafa;
+
+  --stone-200:#e7e5e4;
+  --stone-300: #d6d3d1;
+  --stone-400: #a8a29e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  width: 100%;
+}
+body{
+  color: var(--bg-950);
+}
+button{
+  font-family: inherit;
+  color: var(--bg-950);
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+/* Website Title */
+.web-title{
+  font-size: 2.25rem;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* Add book button */
+.add-book-control{
+  margin-top: 10px;
+  text-align: center;  
+}
+#add-button{
+  font-size: 16px;
+  padding: 8px 16px;
+  background: var(--amber-300);
+}
+#add-button:hover{
+  background: var(--amber-400);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+#add-button:active{
+  background: var(--amber-500);
+}
+
+/* dialog styling */
+#add-book-dialog{
+  width: 300px;
+  margin: auto auto;
+  border: none;
+  border-radius: 9px;
+  padding: 12px;
+  background: var(--bg-50);
+}
+
+/* form and input field styling */
+form{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+label{
+  margin: 5px;
+  color: var(--bg-800);
+}
+input{
+  margin-top: 4px;
+  padding: 2px;
+  line-height: 1.5;
+}
+input:not([type='checkbox']){ /* the  */
+  display: block;
+  width: 100%;
+}
+.form-control{
+  margin: 5px;
+}
+input:invalid + div::after{
+  content: "required";
+  color: red;
+  font-size: 75%;
+}
+
+/* dialog button styling */
+#submit-button{
+  font-weight: 500;
+  color: var(--neutral-50);
+  background: var(--bg-500);
+  transition: 0.15s linear;
+}
+#submit-button:hover{
+  background: var(--bg-600);
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+#submit-button:active{
+  background: var(--bg-700);
+}
+#close-button{
+  font-weight: 500;
+  color: var(--neutral-50);
+  background: var(--red-500);
+  float: right;
+  transition: 0.15s linear;
+}
+#close-button:hover{
+  background: var(--red-600);
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+#close-button:active{
+  background: var(--red-700);
+}
+
+/* bookshelf styling */
+.bookshelf{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 25px 10%;
+  gap: 30px;
+}
+
+/* bookcard */
+.bookcard{
+  width: 260px;
+  border-radius: 7px;
+  box-shadow: 4px 4px 15px 6px var(--stone-300);
+  padding: 10px;
+}
+.bookcard > div{
+  margin: 5px;
+}
+.bookcard-read > span{
+  font-weight: 700;
+}
+.fin-read{
+  color: var(--bg-600);
+}
+.unfin-read{
+  color: var(--red-600);
+}
+.mark-button .remove-button{
+  font-weight: 600;
+}
+.mark-but{
+  background: var(--bg-300);
+}
+.unmark-but{
+  background: var(--amber-300);
+}
+.remove-button{
+  float: right;
+  color: var(--neutral-50);
+  background: var(--red-500);
+}
+.card-button:hover{
+   box-shadow: 0 0 6px rgba(0,0,0,0.4); 
+}

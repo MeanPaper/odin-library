@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Simple Library</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class='web-title'> Simple Library </div>
+  <div class='add-book-control'>
+    <button type="button" class='simple-button' id='add-button'> Add a Book </button>
+  </div>
+  <dialog id="add-book-dialog">
+    <form>
+      <label for="book_title">Book Title
+        <input type="text" placeholder="book title" name="book_title" id="book_title" required/>
+        <div id='no-book-title' class='error'></div>
+      </label>
+      <label for="author"> Author
+        <input type="text" placeholder="author" name="author" id="author" required/>
+        <div id='no-author' class='error'></div>
+      </label>
+      <label for="num_pages"> Pages 
+        <input type="number" placeholder="number of pages" name="num_pages" id="num_pages" min="0" required/>
+        <div id='no-num-pages' class='error'></div>
+      </label>
+      <label for="read"> Have Read 
+        <input type="checkbox" name="read" id='read'/>
+        <div id='no-read' class='error'></div>
+      </label>
+      <div class='form-control'>
+        <button type="submit" class='dialog-button' id='submit-button'> Submit </button>
+        <button type="button" class='dialog-button' id='close-button'> Close </button>
+      </div>
+    </form>
+  </dialog>
+  <div class='bookshelf' id='bookshelf'></div>
+  <script src="script.js"></script>
+  <!-- <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script> -->
+</body>
+
+</html>
