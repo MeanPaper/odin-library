@@ -1,6 +1,6 @@
 // we will do a demo... No books will be store on the device (localStorage) or db
 // we can do it using session storage because session storage will be free once the windows is closed
-const myLibrary = []
+var myLibrary = []
 
 const add_button = document.getElementById('add-button');
 const add_book_dialog = document.getElementById('add-book-dialog');
@@ -27,6 +27,8 @@ submit_dialog_button.addEventListener('click', (event)=>{
   }
   add_book_dialog.close();  // mimic the behavior of closing due to submit
   addBookToLibrary();
+  localStorage.setItem('books', JSON.stringify(myLibrary));
+  renderBooks();
 });
 
 function Book(title, author, pages, read){
@@ -40,16 +42,27 @@ function addBookToLibrary(){
   let a_book = new Book(book_title.value, book_author.value, book_pages.value, have_read.checked)
   myLibrary.push(a_book)
 
+  // clear form
   book_title.value = null;
   book_author.value = null;
   book_pages.value = null;
   have_read.checked = false;
-  
-  renderBooks();
+}
+
+function getBooksFromLocal(){
+  console.log("hello")
+  let temp = localStorage.getItem('books');
+  if(temp){
+    myLibrary = JSON.parse(temp);
+  }
+  else {
+    myLibrary = [];
+  }
 }
 
 // render books 
 function renderBooks(){
+  getBooksFromLocal();
   bookshelf.innerHTML = "";
   // use "of" for an iterable object if index is ignored
   for(let i = 0; i < myLibrary.length; i++){ 
@@ -82,10 +95,19 @@ function renderBooks(){
 
 function markBook(key_val){
   myLibrary[key_val].read = !myLibrary[key_val].read;
+  localStorage.setItem("books", JSON.stringify(myLibrary));
   renderBooks();
 }
 
 function removeBook(key_val){
   myLibrary.splice(key_val, 1);
+  if(myLibrary.length == 0){
+    localStorage.removeItem("books");
+  }
+  else{
+    localStorage.setItem("books", JSON.stringify(myLibrary));
+  }
   renderBooks();
 }
+
+renderBooks();
